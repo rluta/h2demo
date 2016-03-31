@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SPDY DEMO</title>
+    <style>
+    * { margin: 0; border: 0; padding: 0; }
+    img { 
+	float: left;
+        width:11%;
+        height:20%;
+     }
+    .clear {clear:both;}
+    #perf { 
+      position: absolute;
+      top: 0px; left:0px; z-index:1;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      font-size: 36px; 
+      font-family: sans-serif;
+    </style>
+</head>
+<body><!--
+--><img src="images/0.jpg" alt="00" /><!--
+--><img src="images/1.jpg" alt="01" /><!--
+--><img src="images/2.jpg" alt="02" /><!--
+--><img src="images/3.jpg" alt="03" /><!--
+--><img src="images/4.jpg" alt="04" /><!--
+--><img src="images/5.jpg" alt="05" /><!--
+--><img src="images/6.jpg" alt="06" /><!--
+--><img src="images/7.jpg" alt="07" /><!--
+--><img src="images/8.jpg" alt="08" class="clear"/><!--
+--><img src="images/9.jpg" alt="09" /><!--
+--><img src="images/10.jpg" alt="10" /><!--
+--><img src="images/11.jpg" alt="11" /><!--
+--><img src="images/12.jpg" alt="12" /><!--
+--><img src="images/13.jpg" alt="13" /><!--
+--><img src="images/14.jpg" alt="14" /><!--
+--><img src="images/15.jpg" alt="15" /><!--
+--><img src="images/16.jpg" alt="16" class="clear"/><!--
+--><img src="images/17.jpg" alt="17" /><!--
+--><img src="images/18.jpg" alt="18" /><!--
+--><img src="images/19.jpg" alt="19" /><!--
+--><img src="images/20.jpg" alt="20" /><!--
+--><img src="images/21.jpg" alt="21" /><!--
+--><img src="images/22.jpg" alt="22" /><!--
+--><img src="images/23.jpg" alt="23" /><!--
+--><img src="images/24.jpg" alt="24" class="clear"/><!--
+--><img src="images/25.jpg" alt="25" /><!--
+--><img src="images/26.jpg" alt="26" /><!--
+--><img src="images/27.jpg" alt="27" /><!--
+--><img src="images/28.jpg" alt="28" /><!--
+--><img src="images/29.jpg" alt="29" /><!--
+--><img src="images/30.jpg" alt="30" /><!--
+--><img src="images/31.jpg" alt="31" /><!--
+--><img src="images/32.jpg" alt="32" class="clear"/><!--
+--><img src="images/33.jpg" alt="33" /><!--
+--><img src="images/34.jpg" alt="34" /><!--
+--><img src="images/35.jpg" alt="35" /><!--
+--><img src="images/36.jpg" alt="36" /><!--
+--><img src="images/37.jpg" alt="37" /><!--
+--><img src="images/38.jpg" alt="38" /><!--
+--><img src="images/39.jpg" alt="39" /><!--
+--><div id="perf"></div>
+<script>
+window.onload = function () {
+  var perf = document.getElementById('perf');
+  var total = window.performance.timing.domComplete-window.performance.timing.navigationStart
+  var ttfb = window.performance.timing.responseStart-window.performance.timing.navigationStart
+  var dom = window.performance.timing.domComplete-window.performance.timing.domLoading
+  perf.innerHTML='Total: '+total+'ms (TTFB: '+ttfb+'ms - DOM:' +dom+'ms)'
+  window.postMessages({type:'perf',uri:document.location,timings:window.performance.timing})
+}
+</script>
+</body>
+</html>

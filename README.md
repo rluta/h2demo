@@ -1,2 +1,1 @@
-# docker image for HTTP/2 testing
-
+# HTTP/2 demo container for HTTP:NG presentation
